@@ -1,0 +1,17 @@
+server:
+    port: 8801
+# 多环境配置文件激活属性
+spring:
+    profiles:
+        active: ${profile:dev}
+    application:
+        name: xpage
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.zjy.job.carrental.domain  # 注意：对应实体类的路径
+  config-location: classpath:mybatis-config.xml
+
+pagehelper:
+  pageSizeZero: true
+  reasonable: true
