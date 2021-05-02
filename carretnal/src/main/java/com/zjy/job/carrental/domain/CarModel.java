@@ -57,7 +57,7 @@ public class CarModel {
     /**
      * 创建人
      */
-    private String createUser;
+    private Integer createUser;
 
     /**
      * 更新时间
@@ -67,7 +67,7 @@ public class CarModel {
     /**
      * 更新人
      */
-    private String updateUser;
+    private Integer updateUser;
 
 }
 

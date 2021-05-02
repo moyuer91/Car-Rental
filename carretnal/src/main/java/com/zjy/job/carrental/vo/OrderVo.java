@@ -1,4 +1,4 @@
-package com.zjy.job.carrental.domain;
+package com.zjy.job.carrental.vo;
 
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Data
 @Table(name = "order")
-public class Order {
+public class OrderVo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "jdbc")
@@ -55,28 +55,4 @@ public class Order {
      */
     private String status;
 
-    /**
-     * 状态 A生效，C失效
-     */
-    private String sts;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 创建人
-     */
-    private Integer createUser;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
-
-    /**
-     * 更新人
-     */
-    private Integer updateUser;
 }

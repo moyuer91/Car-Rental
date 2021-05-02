@@ -6,12 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-@Table(name = "order")
-public class Order {
+@Table(name = "user_info")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "jdbc")
@@ -21,39 +20,14 @@ public class Order {
     private Integer id;
 
     /**
-     * 订单号
+     * 用户号
      */
-    private String orderNo;
+    private String userNo;
 
     /**
-     * 用户id
+     * 用户名
      */
-    private Integer userId;
-
-    /**
-     * 车型id
-     */
-    private Integer modelId;
-
-    /**
-     * 价格
-     */
-    private BigDecimal price;
-
-    /**
-     * 租用开始时间槽
-     */
-    private Integer startTime;
-
-    /**
-     * 租用结束时间槽
-     */
-    private Integer endTime;
-
-    /**
-     * 订单状态 P待支付 G待取车 R已取车 B已还车 C已取消
-     */
-    private String status;
+    private String userName;
 
     /**
      * 状态 A生效，C失效

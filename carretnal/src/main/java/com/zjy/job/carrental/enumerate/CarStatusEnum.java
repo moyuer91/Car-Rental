@@ -1,19 +1,19 @@
 package com.zjy.job.carrental.enumerate;
 
 public enum CarStatusEnum {
-    AVAILABLE(0,"available"),
-    MAINTAINING(1,"maintainng"),
-    RENTED(2,"RENTED"),
-    INVALID(3,"invalid");
+    AVAILABLE("A","available"),
+    MAINTAINING("M","maintainng"),
+    RENTED("R","RENTED"),
+    INVALID("I","invalid");
 
-    private Integer key;
+    private String key;
     private String value;
 
-    CarStatusEnum(Integer key,String value){
+    CarStatusEnum(String key,String value){
         this.key = key;
         this.value = value;
     }
-    public Integer getKey(){
+    public String getKey(){
         return key;
     }
     public String getValue(){

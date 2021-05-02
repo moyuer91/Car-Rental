@@ -6,29 +6,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.math.BigDecimal;
 import java.util.Date;
 
+
+/**
+ * 库存日历，以时间槽为单位
+ */
 @Data
-@Table(name = "order")
-public class Order {
+@Table(name = "storage_calender")
+public class StorageTimeSlot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "jdbc")
     /**
-     * 车型id
+     * id
      */
     private Integer id;
-
-    /**
-     * 订单号
-     */
-    private String orderNo;
-
-    /**
-     * 用户id
-     */
-    private Integer userId;
 
     /**
      * 车型id
@@ -36,25 +29,24 @@ public class Order {
     private Integer modelId;
 
     /**
-     * 价格
+     * 时间槽编号
      */
-    private BigDecimal price;
+    private Integer timeSlotNo;
 
     /**
-     * 租用开始时间槽
+     * 最大可用数
      */
-    private Integer startTime;
+    private Integer maxAvailable;
 
     /**
-     * 租用结束时间槽
+     * 剩余可用数
      */
-    private Integer endTime;
+    private Integer remaining;
 
     /**
-     * 订单状态 P待支付 G待取车 R已取车 B已还车 C已取消
+     * 时间槽编号
      */
-    private String status;
-
+    private Integer time_slot_no;
     /**
      * 状态 A生效，C失效
      */

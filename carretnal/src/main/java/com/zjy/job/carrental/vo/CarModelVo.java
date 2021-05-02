@@ -1,5 +1,4 @@
-package com.zjy.job.carrental.domain;
-
+package com.zjy.job.carrental.vo;
 import lombok.Data;
 
 import javax.persistence.GeneratedValue;
@@ -10,9 +9,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-@Table(name = "order")
-public class Order {
-
+@Table(name = "car_model")
+public class CarModelVo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "jdbc")
     /**
@@ -21,39 +19,30 @@ public class Order {
     private Integer id;
 
     /**
-     * 订单号
+     * 车型名称
      */
-    private String orderNo;
+    private String name;
 
     /**
-     * 用户id
+     * 车辆品类
      */
-    private Integer userId;
-
-    /**
-     * 车型id
-     */
-    private Integer modelId;
+    private String type;
 
     /**
      * 价格
      */
     private BigDecimal price;
 
-    /**
-     * 租用开始时间槽
-     */
-    private Integer startTime;
 
     /**
-     * 租用结束时间槽
+     * 车型图片url
      */
-    private Integer endTime;
+    private String pictureUrl;
 
     /**
-     * 订单状态 P待支付 G待取车 R已取车 B已还车 C已取消
+     * 车型详情
      */
-    private String status;
+    private String detail;
 
     /**
      * 状态 A生效，C失效
@@ -79,4 +68,6 @@ public class Order {
      * 更新人
      */
     private Integer updateUser;
+
 }
+
