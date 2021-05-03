@@ -1,5 +1,6 @@
 package com.zjy.job.carrental.service.impl;
 
+import com.zjy.job.carrental.common.RandomUtil;
 import com.zjy.job.carrental.domain.Order;
 import com.zjy.job.carrental.enumerate.OrderStatusEnum;
 import com.zjy.job.carrental.mapper.IOrderMapper;
@@ -9,10 +10,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 
+/**
+ * 订单服务，场景复杂时可独立为一个微服务
+ */
 @Service
 @Slf4j
 public class OrderService implements IOrderService {
@@ -21,6 +25,7 @@ public class OrderService implements IOrderService {
     IOrderMapper orderMapper;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public OrderVo createOrder(OrderVo orderVo) {
         OrderVo result = new OrderVo();
         // 1. 生成订单号
@@ -32,15 +37,14 @@ public class OrderService implements IOrderService {
         order.setOrderNo(orderNo);
         order.setStatus(OrderStatusEnum.TOPAY.getKey());
         order.setCreateUser(orderVo.getUserId());
-        int id = orderMapper.insert(order);
-        BeanUtils.copyProperties(result,order);
+        int id = orderMapper.insertSelective(order);
+        BeanUtils.copyProperties(order,result);
         result.setId(id);
         return result;
     }
 
     @Override
     public List<OrderVo> getOrdersByTimeSlot(Integer startTime, Integer endTime) {
-
         return null;
     }
 

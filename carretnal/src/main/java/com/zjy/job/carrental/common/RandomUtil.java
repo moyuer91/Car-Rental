@@ -1,4 +1,4 @@
-package com.zjy.job.carrental.service.impl;
+package com.zjy.job.carrental.common;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * 随机数生成util
  **/
 public class RandomUtil {
-    private static final SimpleDateFormat dateFormatOne=new SimpleDateFormat("yyyyMMddHHmmssSS");
+    private static final SimpleDateFormat dateFormatOne=new SimpleDateFormat("yyyyMMddHHmmssSSS");
 
     private static final ThreadLocalRandom random=ThreadLocalRandom.current();
 

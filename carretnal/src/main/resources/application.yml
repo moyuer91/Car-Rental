@@ -15,3 +15,7 @@ mybatis:
 pagehelper:
   pageSizeZero: true
   reasonable: true
+
+logging:
+  level:
+    com.zjy.job.carrental.mapper: debug

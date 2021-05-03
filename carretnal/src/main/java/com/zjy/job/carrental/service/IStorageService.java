@@ -10,4 +10,11 @@ public interface IStorageService {
      * @return true 库存>0 库存=0
      */
     Boolean checkStorage(OrderVo order);
+
+    /**
+     * 扣减库存
+     * @param order
+     * @return
+     */
+    Boolean reduceStorage(OrderVo order);
 }

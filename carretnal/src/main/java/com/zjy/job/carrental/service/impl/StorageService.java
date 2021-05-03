@@ -2,6 +2,7 @@ package com.zjy.job.carrental.service.impl;
 
 import com.zjy.job.carrental.domain.StorageTimeSlot;
 import com.zjy.job.carrental.mapper.ICarMapper;
+import com.zjy.job.carrental.mapper.IStorageCalenderExtendMapper;
 import com.zjy.job.carrental.mapper.IStorageCalenderMapper;
 import com.zjy.job.carrental.service.IOrderService;
 import com.zjy.job.carrental.service.IStorageService;
@@ -9,11 +10,15 @@ import com.zjy.job.carrental.vo.OrderVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
+/**
+ * 库存服务，业务场景复杂时可提升为服务
+ */
 @Service
 @Slf4j
 public class StorageService implements IStorageService {
@@ -22,6 +27,9 @@ public class StorageService implements IStorageService {
 
     @Autowired
     private IStorageCalenderMapper storageCalenderMapper;
+
+    @Autowired
+    private IStorageCalenderExtendMapper storageCalenderExtendMapper;
 
     @Override
     public Boolean checkStorage(OrderVo order) {
@@ -39,6 +47,13 @@ public class StorageService implements IStorageService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public Boolean reduceStorage(OrderVo order) {
+        storageCalenderExtendMapper.reduceStorageByTimeSlot(order.getModelId(),order.getStartTime(),order.getEndTime());
+        return true;
     }
 
 }

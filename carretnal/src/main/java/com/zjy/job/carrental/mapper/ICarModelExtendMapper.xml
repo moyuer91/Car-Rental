@@ -4,7 +4,7 @@
     <sql id="Base_Column_List">
       id, name, type, price, picture_url, detail, sts, create_time, create_user,update_time,update_user
     </sql>
-    <select id="selectByCondition1" parameterType="java.lang.Integer" resultType="com.zjy.job.carrental.domain.CarModel">
+    <select id="selectByCondition" parameterType="java.lang.Integer" resultType="com.zjy.job.carrental.domain.CarModel">
         SELECT
         <include refid="Base_Column_List" />
         FROM

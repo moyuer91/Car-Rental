@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjy.job.carrental.mapper.IStorageCalenderExtendMapper">
+    <update id="reduceStorageByTimeSlot" parameterType="java.lang.Integer">
+        update storage_calender
+        set remaining=remaining-1
+        where sts='A' and model_id=#{modelId} and time_slot_no &gt;=  #{startTime} and time_slot_no &lt;= #{endTime}
+
+    </update>
+</mapper>

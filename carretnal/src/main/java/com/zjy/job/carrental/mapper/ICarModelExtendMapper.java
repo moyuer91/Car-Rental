@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ICarModelExtendMapper {
-    CarModel selectByCondition1(Integer id);
+    CarModel selectByCondition(Integer id);
 }

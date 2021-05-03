@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-@Table(name = "order")
+@Table(name = "order_info")
 public class Order {
 
     @Id
@@ -36,7 +36,12 @@ public class Order {
     private Integer modelId;
 
     /**
-     * 价格
+     * 车辆id，后续提车时录入
+     */
+    private Integer carId;
+
+    /**
+     * 成交价格
      */
     private BigDecimal price;
 
@@ -54,6 +59,11 @@ public class Order {
      * 订单状态 P待支付 G待取车 R已取车 B已还车 C已取消
      */
     private String status;
+
+    /**
+     * 备注
+     */
+    private String remark;
 
     /**
      * 状态 A生效，C失效

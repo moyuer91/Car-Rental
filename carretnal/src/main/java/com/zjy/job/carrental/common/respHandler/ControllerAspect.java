@@ -1,4 +1,4 @@
-package com.zjy.job.carrental.aspect;
+package com.zjy.job.carrental.common.respHandler;
 
 import com.zjy.job.carrental.common.exception.ServiceException;
 import com.zjy.job.carrental.domain.Result;
