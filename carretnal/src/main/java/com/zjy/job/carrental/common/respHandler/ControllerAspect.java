@@ -41,7 +41,7 @@ public class ControllerAspect {
 //        return result;
 //    }
 
-    @Pointcut("execution(* com.zjy.job.carrental.*.*(..))")
+    @Pointcut("execution(* com.zjy.job.carrental.controller.*.*(..))")
     private void controllerCutPoint() {
 
     }
