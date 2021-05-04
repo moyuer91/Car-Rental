@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/rental")
+@RequestMapping(value = "/rental/api")
 @Api(value = "car rental interface")
 public class CarRentalController {
     @Autowired
