@@ -33,20 +33,23 @@ public class StorageService implements IStorageService {
 
     @Override
     public Boolean checkStorage(OrderVo order) {
-
         //1. 获取和本订单时间涉及的时间槽内的库存剩余为0的记录
         Example ex = new Example(StorageTimeSlot.class);
         Example.Criteria cr = ex.createCriteria();
         cr.andEqualTo("modelId",order.getModelId())
-                .andBetween("timeSlotNo",order.getStartTime(),order.getEndTime())
-                .andEqualTo("remaining",0);
+                .andBetween("timeSlotNo",order.getStartTime(),order.getEndTime());
         List<StorageTimeSlot> slots = storageCalenderMapper.selectByExample(ex);
 
         //2. 该时段的库存只要有一个不足就是库存不足
         if(CollectionUtils.isEmpty(slots)){
-            return true;
+            return false;
         }
-        return false;
+        for(StorageTimeSlot slot:slots){
+            if(slot.getRemaining()==0){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

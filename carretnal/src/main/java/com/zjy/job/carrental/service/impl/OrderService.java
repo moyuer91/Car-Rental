@@ -37,9 +37,8 @@ public class OrderService implements IOrderService {
         order.setOrderNo(orderNo);
         order.setStatus(OrderStatusEnum.TOPAY.getKey());
         order.setCreateUser(orderVo.getUserId());
-        int id = orderMapper.insertSelective(order);
+        orderMapper.insertSelective(order);
         BeanUtils.copyProperties(order,result);
-        result.setId(id);
         return result;
     }
 

@@ -19,45 +19,45 @@ public class OrderVo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "jdbc")
     /**
-     * 车型id
+     * 订单id
      */
-    @ApiModelProperty(value="车型id")
+    @ApiModelProperty(value="订单id")
     private Integer id;
 
     /**
      * 订单号
      */
-    @ApiModelProperty(value="订单号")
+    @ApiModelProperty(value="订单编号")
     private String orderNo;
 
     /**
      * 用户id
      */
-    @ApiModelProperty(value="用户id")
+    @ApiModelProperty(value="用户id",required = true)
     private Integer userId;
 
     /**
      * 车型id
      */
-    @ApiModelProperty(value="车型id")
+    @ApiModelProperty(value="车型id",required = true)
     private Integer modelId;
 
     /**
      * 价格
      */
-    @ApiModelProperty(value="价格")
+    @ApiModelProperty(value="价格",required = true)
     private BigDecimal price;
 
     /**
      * 租用开始时间槽
      */
-    @ApiModelProperty(value="租用开始时间槽")
+    @ApiModelProperty(value="租用开始时间槽",required = true)
     private Integer startTime;
 
     /**
      * 租用结束时间槽
      */
-    @ApiModelProperty(value="租用结束时间槽")
+    @ApiModelProperty(value="租用结束时间槽",required = true)
     private Integer endTime;
 
     /**

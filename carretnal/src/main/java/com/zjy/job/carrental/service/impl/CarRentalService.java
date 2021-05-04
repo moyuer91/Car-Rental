@@ -25,7 +25,8 @@ import java.util.List;
 @Slf4j
 @Service
 public class CarRentalService implements ICarRentalService {
-
+    @Autowired
+    private CarModelService carModelService;
 
     @Autowired
     private IStorageService storageService;
@@ -41,6 +42,17 @@ public class CarRentalService implements ICarRentalService {
     @ServiceLock(description = "可重入锁，保证不会超卖")
     @Transactional(rollbackFor = Exception.class)
     public OrderVo reserveCarWithReentrantLock(OrderVo order) throws ServiceException {
+        // 0. 校验参数合法性
+        if(order.getStartTime()==null || order.getEndTime()==null){
+            log.error("订单起止时间不能为空");
+            throw new ServiceException("订单起止时间不能为空");
+        }
+        CarModel carModel = carModelService.getCarModelById(order.getModelId());
+        if(carModel==null){
+            log.error("没有找到指定车型");
+            throw new ServiceException("没有找到指定车型");
+        }
+
         // 1. 校验库存
         if(!storageService.checkStorage(order)){
             log.error("没有库存,预定失败");
