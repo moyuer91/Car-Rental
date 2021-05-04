@@ -1,6 +1,7 @@
 # 多环境配置文件激活属性
 spring:
     datasource:
+      druid:
         url: jdbc:mysql://rds62662kuq995s0k5ipo.mysql.rds.aliyuncs.com/xpage?useUnicode=true&characterEncoding=utf8
         username: xpage
         password: xpage20190622@!###
