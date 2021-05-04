@@ -35,7 +35,7 @@ CarModelService：车型服务，管理了客户租车页面展示的可租车�
 
 ### 2.3 接口设计
 
-使用swagger进行接口登记管理，具体可以查阅http://localhost:8801/swagger-ui.html#/
+使用swagger进行接口登记管理，具体可以查阅http://123.60.36.218//swagger-ui.html#/
 
 ## 3. 功能模块设计
 

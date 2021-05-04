@@ -1,8 +1,7 @@
 # 多环境配置文件激活属性
 spring:
-    datasource:
-      druid:
-        url: jdbc:mysql://rds62662kuq995s0k5ipo.mysql.rds.aliyuncs.com/car_rental?useUnicode=true&characterEncoding=utf8
-        username: carrental
-        password: Zjy@202101
-        driver-class-name: com.mysql.jdbc.Driver
+  datasource:
+    url: jdbc:mysql://123.60.36.218:3306/car_rental?useUnicode=true&characterEncoding=utf8
+    username: carrental
+    password: Zjy@202101
+    driver-class-name: com.mysql.jdbc.Driver

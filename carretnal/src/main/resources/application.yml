@@ -1,11 +1,11 @@
 server:
-    port: 8801
+  port: 80
 # 多环境配置文件激活属性
 spring:
-    profiles:
-        active: ${profile:dev}
-    application:
-        name: carrental
+  profiles:
+    active: ${profile:dev}
+  application:
+    name: carrental
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
