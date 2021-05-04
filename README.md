@@ -6,6 +6,7 @@ typora-root-url: ./carretnal/doc/image
 ## 1. 概述
 
 这是一个租车服务demo，包括的基本功能有车型预览，预约下单，我的订单查看。
+由于git图片展示问题，可以在./carrental/doc目录下查看pdf版本的说明文档。
 
 代码仓库见：https://github.com/moyuer91/Car-Rental
 
