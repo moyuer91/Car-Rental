@@ -11,6 +11,7 @@ typora-root-url: ./carretnal/doc/image
 后端代码仓库见：https://github.com/moyuer91/Car-Rental
 
 前端代码仍在开发中，见：https://github.com/moyuer91/car-rental-web
+前端访问入口：http://123.60.36.218
 
 ![](/car-model-list-web.png)
 
